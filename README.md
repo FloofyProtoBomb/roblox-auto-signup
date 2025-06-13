@@ -1,4 +1,5 @@
-> [!NOTE]  
+> [!NOTE]
+> THIS IS A TEST!
 > Join the [Discord server](https://qing762.is-a.dev/discord) for issues. Thanks a lot!
 
 > [!WARNING]
