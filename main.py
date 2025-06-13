@@ -191,12 +191,10 @@ async def main():
 
             if verification is True:
                 try:
-                    page.get("https://www.roblox.com/my/account")
-                    page.wait.url_change("https://www.roblox.com/my/account", timeout=float('inf'))
-                    page.eles("#account-field-edit-action").click()
-                    page.ele("@id:emailAddress").input(email)
-                    page.ele("@text:AddEmail@class:btn-primary-md").click()
-                    if page.ele(".verification-upsell-text-body", timeout=60):
+                    tab.ele('xpath://*[@id="rbx-account-info-header"]/div[2]/div[5]/span/button').click()
+                    tab.ele('xpath://*[@id="emailAddress"]').input(email)
+                    tab.ele('xpath://*[@id="rbx-body"]/div[20]/div[2]/div/div/div[3]/button').click()
+                    if tab.ele('xpath://*[@id="rbx-body"]/div[20]/div[2]/div/div/div[3]/button', timeout=60):
                         link = None
                         while True:
                             messages = lib.fetchVerification(email, emailPassword, emailID)
