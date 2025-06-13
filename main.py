@@ -191,9 +191,11 @@ async def main():
 
             if verification is True:
                 try:
-                    page.ele(".btn-primary-md btn-primary-md btn-min-width").click()
-                    page.ele(". form-control input-field verification-upsell-modal-input").input(email)
-                    page.ele(".modal-button verification-upsell-btn btn-cta-md btn-min-width").click()
+                    page.get("https://www.roblox.com/my/account")
+                    page.wait.url_change("https://www.roblox.com/my/account", timeout=float('inf'))
+                    page.ele('Add Email').click()
+                    page.ele('Enter email').input(email)
+                    page.ele('Add Email').click()
                     if page.ele(".verification-upsell-text-body", timeout=60):
                         link = None
                         while True:
