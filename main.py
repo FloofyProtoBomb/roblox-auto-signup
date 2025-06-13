@@ -193,9 +193,9 @@ async def main():
                 try:
                     page.get("https://www.roblox.com/my/account")
                     page.wait.url_change("https://www.roblox.com/my/account", timeout=float('inf'))
-                    page.ele("@@text()=Sign Up").click()
-                    page.ele("#emailAddress").input(email)
-                    page.ele("@@text()=Add Email").click()
+                    page.eles("#account-field-edit-action").click()
+                    page.ele("@id:emailAddress").input(email)
+                    page.ele("@text:AddEmail@class:btn-primary-md").click()
                     if page.ele(".verification-upsell-text-body", timeout=60):
                         link = None
                         while True:
